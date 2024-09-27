@@ -1,5 +1,5 @@
 # speed_estimation_yolov8_deepsort
-This project contains code for speed calculation of vehicles using yolov8 object detector and deepsort object tracker.
+This project contains code for speed estimation of vehicles using yolov8 object detector and deepsort object tracker.
 
 ## Dependencies
 
@@ -22,6 +22,20 @@ Then, download the CNN checkpoint file from
 
 
 
-We have replaced the appearance descriptor with a custom deep convolutional
-neural network (see below).
+Appearance descriptor is replaced with a custom deep convolutional
+neural network.
 
+## Running the tracker
+
+```
+python main.py --descriptor "path to descriptor" --object-detector "path to yolov8" --video "path to video"
+```
+Only "car","truck","bus" classes are being tracked in this code. In order to track other class like "bike" change code lne no 65 in main.py to following:
+
+if result.names[box.cls[0].item()] == ['car','truck','bus']:
+
+Check `python main.py -h` for an overview of available options.
+
+https://github.com/nwojke/deep_sort
+https://github.com/Qidian213/deep_sort_yolov3
+https://github.com/roboflow/supervision/tree/develop/examples/speed_estimation
