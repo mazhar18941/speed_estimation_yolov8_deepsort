@@ -15,7 +15,7 @@ Additionally, feature generation requires TensorFlow (>= 1.0).
 
 First, clone the repository:
 ```
-https://github.com/mazhar18941/deepSort-Yolov8.git
+https://github.com/mazhar18941/speed_estimation_yolov8_deepsort.git
 ```
 Then, download the CNN checkpoint file from
 [here](https://drive.google.com/open?id=18fKzfqnqhqW3s9zwsCbnVJ5XF2JFeqMp).
@@ -25,7 +25,7 @@ Then, download the CNN checkpoint file from
 Appearance descriptor is replaced with a custom deep convolutional
 neural network.
 
-## Running the tracker
+## Running the estimator
 
 ```
 python main.py --descriptor "path to descriptor" --object-detector "path to yolov8" --video "path to video"
@@ -35,6 +35,12 @@ Only "car","truck","bus" classes are being tracked in this code. In order to tra
 if result.names[box.cls[0].item()] == ['car','truck','bus']:
 
 Check `python main.py -h` for an overview of available options.
+
+## Configuration
+
+SOURCE and TARGET points are taken for specific video used in this project. In order to use another video edit SOURCE and TARGET points in config.py file.
+
+## Reference
 
 https://github.com/nwojke/deep_sort
 https://github.com/Qidian213/deep_sort_yolov3
